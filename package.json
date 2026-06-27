@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Minimal personal site of Matheus Nascimento",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
