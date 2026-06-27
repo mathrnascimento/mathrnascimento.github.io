@@ -4,8 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build
 export default defineConfig({
-    // User GitHub Pages site is served from the domain root.
-    site: 'https://mathrnascimento.github.io',
+    site: 'https://mathrnascimento.com',
     base: '/',
     trailingSlash: 'ignore',
     integrations: [sitemap()],
