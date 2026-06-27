@@ -1,0 +1,205 @@
+/* ===========================================================================
+   Design tokens & base styles
+   =========================================================================== */
+
+:root {
+    /* Neutral scale (zinc) */
+    --c-0: #ffffff;
+    --c-50: #fafafa;
+    --c-100: #f4f4f5;
+    --c-200: #e4e4e7;
+    --c-300: #d4d4d8;
+    --c-400: #a1a1aa;
+    --c-500: #71717a;
+    --c-600: #52525b;
+    --c-700: #3f3f46;
+    --c-800: #27272a;
+    --c-900: #18181b;
+    --c-950: #09090b;
+
+    /* Accent (indigo / violet) */
+    --accent-400: #818cf8;
+    --accent-500: #6366f1;
+    --accent-600: #4f46e5;
+
+    /* Semantic — light theme defaults */
+    --bg: var(--c-0);
+    --bg-subtle: var(--c-50);
+    --bg-elevated: var(--c-100);
+    --surface: #ffffff;
+    --border: var(--c-200);
+    --border-strong: var(--c-300);
+    --text: var(--c-950);
+    --text-muted: var(--c-600);
+    --text-subtle: var(--c-500);
+    --accent: var(--accent-600);
+    --accent-contrast: #ffffff;
+    --shadow-color: 220 40% 20%;
+
+    /* Typography */
+    --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-serif: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+
+    /* Fluid type scale */
+    --step--1: clamp(0.83rem, 0.78rem + 0.22vw, 0.95rem);
+    --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+    --step-2: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    --step-3: clamp(1.95rem, 1.6rem + 1.7vw, 2.75rem);
+    --step-4: clamp(2.5rem, 1.9rem + 3vw, 4rem);
+    --step-5: clamp(3rem, 2rem + 5vw, 5.5rem);
+
+    /* Spacing & layout */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 7rem;
+    --container: 72rem;
+    --container-narrow: 48rem;
+    --radius: 14px;
+    --radius-lg: 22px;
+
+    /* Motion */
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur: 0.5s;
+
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: var(--c-950);
+        --bg-subtle: #0c0c0f;
+        --bg-elevated: var(--c-900);
+        --surface: #111114;
+        --border: #232328;
+        --border-strong: #313137;
+        --text: #f4f4f5;
+        --text-muted: var(--c-400);
+        --text-subtle: var(--c-500);
+        --accent: var(--accent-400);
+        --accent-contrast: var(--c-950);
+        --shadow-color: 0 0% 0%;
+
+        color-scheme: dark;
+    }
+}
+
+/* ===========================================================================
+   Reset
+   =========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--step-0);
+    line-height: 1.65;
+    color: var(--text);
+    background-color: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
+    overflow-x: hidden;
+}
+
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--accent-contrast);
+}
+
+/* ===========================================================================
+   Layout helpers
+   =========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100%;
+    z-index: 200;
+    padding: 0.6rem 1rem;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: top 0.2s var(--ease);
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* Buttons */

@@ -1,0 +1,88 @@
+---
+import { site } from '@data/site';
+---
+
+<section class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <h1 class="hero-title">
+      <span class="hero-name">{site.name}</span>
+    </h1>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+    padding-block: clamp(2rem, 8vw, 5rem);
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: min(56rem, 90vw);
+    height: min(56rem, 90vw);
+    translate: -50% -50%;
+    border-radius: 999px;
+    background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--accent) 20%, transparent),
+      transparent 62%
+    );
+    filter: blur(24px);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        circle at 1px 1px,
+        var(--border-strong) 1px,
+        transparent 0
+      );
+    background-size: 40px 40px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 35%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 30% 35%, #000 30%, transparent 75%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 72rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(3.25rem, 9vw, 8rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .hero-name {
+    background: linear-gradient(
+      135deg,
+      var(--text) 15%,
+      color-mix(in srgb, var(--accent) 70%, var(--text)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: clamp(2.75rem, 15vw, 4.5rem);
+      line-height: 1;
+    }
+  }
+</style>

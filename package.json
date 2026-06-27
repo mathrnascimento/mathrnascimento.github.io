@@ -1,0 +1,23 @@
+{
+  "name": "mathrnascimento.github.io",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal personal site of Matheus Nascimento",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.2",
+    "@astrojs/sitemap": "^3.4.1",
+    "@fontsource-variable/fraunces": "^5.2.5",
+    "@fontsource-variable/inter": "^5.2.5",
+    "astro": "^7.0.3",
+    "typescript": "^5.8.3"
+  }
+}
